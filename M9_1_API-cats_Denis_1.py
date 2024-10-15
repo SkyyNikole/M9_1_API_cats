@@ -4,7 +4,7 @@ import requests
 from io import BytesIO
 
 
-def load_image():
+def load_image(url):
     try:
         response = requests.get(url)
 #_делаем запрос по url и то, что вернется, положим в response
