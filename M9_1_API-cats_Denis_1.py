@@ -21,23 +21,32 @@ def load_image(url):
         print(f'Произошла ошибка: {e}.')
         return None
 
+
+def set_image():
+    new_image = load_image(url)
+    # _функция с параметром url (куда будет передаваться адрес url,
+    # будет возвращаться картинка, которую поместим в label)
+
+    if new_image:
+        label.config(image = new_image)
+        label.image = new_image
+    # _после получения new_image, проверяем, что new_image есть,
+    # _и выводим на метку, изменяя атрибут метки - image
+    # _label.image = new_image - нужен, чтобы не ушла картинка в мусор
+
+
 window = Tk()
 window.title('Kitties_Tomcats_Kittens')
 window.geometry('600x480')
 
-label = Label()
+label = Label(window)
 label.pack()
 
-url = 'https://cataas.com/cat'
-new_image = load_image(url)
-#_функция с параметром url (куда будет передаваться адрес url,
-# будет возвращаться картинка, которую поместим в label)
+update_button = Button(window, text='Обновить', command = set_image)
+update_button.pack()
 
-if new_image:
-    label.config(image = new_image)
-    label.image = new_image
-#_после получения new_image, проверяем, что new_image есть,
-#_и выводим на метку, изменяя атрибут метки - image
-#_label.image = new_image - нужен, чтобы не ушла картинка в мусор
+url = 'https://cataas.com/cat'
+
+set_image()
 
 window.mainloop()
