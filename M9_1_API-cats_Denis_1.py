@@ -44,8 +44,14 @@ window.geometry('600x520')
 label = Label(window)
 label.pack()
 
-update_button = Button(window, text='Обновить', command = set_image)
-update_button.pack()
+main_menu = Menu(window)
+window.config(menu = main_menu)
+
+file_menu = Menu(window, tearoff=0)
+
+
+#_update_button = Button(window, text='Обновить', command = set_image)
+#_update_button.pack()
 
 url = 'https://cataas.com/cat'
 
