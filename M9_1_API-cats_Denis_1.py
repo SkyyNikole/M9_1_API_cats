@@ -14,6 +14,8 @@ def load_image(url):
 #_обрабатываем полученное изображение в байтах
         image_got = Image.open(image_data)
 #_полученное изображение открываем с помощью pillow
+        image_got.thumbnail((600, 480), Image.Resampling.LANCZOS)
+#_подгоняем размер - чтобы качество не страдало от изм размера
         return ImageTk.PhotoImage(image_got)
 #_функция возвращает нам полученное изображение, которое мы положим
 #_new_image = load_image(url), дальше положим label.config(image = new_image)
@@ -37,7 +39,7 @@ def set_image():
 
 window = Tk()
 window.title('Kitties_Tomcats_Kittens')
-window.geometry('600x480')
+window.geometry('600x520')
 
 label = Label(window)
 label.pack()
