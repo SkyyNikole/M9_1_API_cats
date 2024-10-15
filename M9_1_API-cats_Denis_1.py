@@ -59,6 +59,7 @@ file_menu.add_command(label = 'Выход', command = exit_pro)
 
 #_update_button = Button(window, text='Обновить', command = set_image)
 #_update_button.pack()
+#_убрали кнопку
 
 
 url = 'https://cataas.com/cat'
