@@ -3,6 +3,7 @@ import requests
 from PIL import Image, ImageTk
 from io import BytesIO
 
+
 #_4 функция получаем картинку, вернули через return и запомнилась она в img (#_3)
 def get_cat(url):
     get_bytes_img = requests.get(url)
@@ -11,6 +12,8 @@ def get_cat(url):
 #_4.2_преобразовали и битового форм контент в норм картинку
     norm_img_opened = Image.open(norm_img)
 #_4.3_открываем с помощью библ PIL
+    norm_img_opened.thumbnail((500, 400))
+#_4.3.1_изменяем размер под наше окно - размер указываем в виде кортежа
     img_tk = ImageTk.PhotoImage(norm_img_opened)
 #_4.4_преобразуем для tkinter
     return img_tk
@@ -25,7 +28,8 @@ window.iconbitmap('black_cat.ico')
 url = 'https://cataas.com/cat'
 #2_переменная со ссылкой на image с сайта
 img = get_cat(url)
-#3_в переменную img помещаяем функцию с параметром url, на который она получит картинку с сайта
+#3_в переменную img помещаяем функцию с параметром url,
+# на который она получит картинку с сайта
 
 label = Label(window, image = img)
 #1_закинем сюда image c сайта
