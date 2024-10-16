@@ -55,7 +55,7 @@ file_menu = Menu(main_menu, tearoff=0)
 main_menu.add_cascade(label = 'File', menu=file_menu)
 file_menu.add_command(label = 'Get_A_Cat', command = get_new_img)
 file_menu.add_separator()
-file_menu.add_command(label = 'No_More_Cats_For_Me', command = out_pro)
+file_menu.add_command(label = 'No_More_Cats_For_Me - Quit', command = out_pro)
 
 
 
