@@ -20,6 +20,19 @@ def get_cat(url):
 #_4.5_возвращаем на функцию
 
 
+#_5_функц для кнопки - будем получать новую картику с котом
+def get_new_img():
+    img = get_cat(url)
+# 3_в переменную img помещаяем функцию с параметром url,
+# на который она получит картинку с сайта
+# _5.1_переносим вызов функции get_cat() получения нов изобр
+#_нажим кнопку и вызываем get_new_img(), внутри которой
+# вызывается get_cat(url) и в img запоминается картинка по url
+    if img:
+        label.config(image=img)
+        label.image = img
+#_6.1_изменяем и сохраняем
+
 window = Tk()
 window.title('Cats and Kittens')
 window.geometry(f'500x400+{window.winfo_screenwidth()//2-250}+{window.winfo_screenheight()//2-200}')
@@ -27,15 +40,14 @@ window.iconbitmap('black_cat.ico')
 
 url = 'https://cataas.com/cat'
 #2_переменная со ссылкой на image с сайта
-img = get_cat(url)
-#3_в переменную img помещаяем функцию с параметром url,
-# на который она получит картинку с сайта
 
-label = Label(window, image=img)
+label = Label(window)
+#_6 изменяем - теперь в нем изначально нет изображения - см. 6.1
+#_1 label = Label(window, image=img)
 #1_закинем сюда image c сайта
 label.pack()
 
-load_btn = Button(window, text='GetCat_by_Click')
+load_btn = Button(window, text='GetCat_by_Click', command=get_new_img)
 load_btn.pack()
 
 window.mainloop()
