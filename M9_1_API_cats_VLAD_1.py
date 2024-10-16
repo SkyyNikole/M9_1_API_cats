@@ -24,7 +24,12 @@ def get_cat(url):
 
 #_5_функц для кнопки - будем получать новую картику с котом
 def get_new_img():
-    img = get_cat(url)
+    tag = entry.get()
+#_9.1 _ получаем tag из entry
+    url_with_tag = f'https://cataas.com/cat/{tag}' if tag else f'https://cataas.com/cat'
+#_9.2_новые url с tag, если есть tag, a иначе - без /tag
+    #_img = get_cat(url) - после 9.2 изменяем на 9.3 c новым параметром для url с tag
+    img = get_cat(url_with_tag)
 # 3_в переменную img помещаяем функцию с параметром url,
 # на который она получит картинку с сайта
 # _5.1_переносим вызов функции get_cat() получения нов изобр
@@ -32,6 +37,7 @@ def get_new_img():
 # вызывается get_cat(url) и в img запоминается картинка по url
     if img:
         new_window = Toplevel()
+        new_window.iconbitmap('black_cat.ico')
         label = Label(new_window, image=img)
         #_label.config(image=img) - убрали, тк теперь картинка сразу открывается в нов окне
         label.image = img
@@ -45,7 +51,7 @@ window.title('Cats and Kittens')
 window.geometry(f'500x440+{window.winfo_screenwidth()//2-250}+{window.winfo_screenheight()//2-220}')
 window.iconbitmap('black_cat.ico')
 
-url = 'https://cataas.com/cat'
+#_url = 'https://cataas.com/cat' - после 9.1 не нужно
 #2_переменная со ссылкой на image с сайта
 
 #_8 label = Label(window) переносим в Toplevel окно
@@ -53,6 +59,10 @@ url = 'https://cataas.com/cat'
 #_1 label = Label(window, image=img)
 #1_закинем сюда image c сайта
 #_label.pack() - тоже перенесли в 8.1
+
+entry = Entry(window)
+entry.pack()
+#_9 создаем entry и получаем из entry инфу в 9.1
 
 main_menu = Menu(window)
 window.config(menu=main_menu)
