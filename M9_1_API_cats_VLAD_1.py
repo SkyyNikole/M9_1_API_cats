@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 from io import BytesIO
 
 window = Tk()
+window.title('Cats and Kitties')
 
 
 
