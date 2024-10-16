@@ -3,6 +3,8 @@ import requests
 from PIL import Image, ImageTk
 from io import BytesIO
 
+def out_pro():
+    window.destroy()
 
 #_4 функция получаем картинку, вернули через return и запомнилась она в img (#_3)
 def get_cat(url):
@@ -47,7 +49,18 @@ label = Label(window)
 #1_закинем сюда image c сайта
 label.pack()
 
-load_btn = Button(window, text='GetCat_by_Click', command=get_new_img)
-load_btn.pack()
+main_menu = Menu(window)
+window.config(menu=main_menu)
+file_menu = Menu(main_menu, tearoff=0)
+main_menu.add_cascade(label = 'File', menu=file_menu)
+file_menu.add_command(label = 'Get_A_Cat', command = get_new_img)
+file_menu.add_separator()
+file_menu.add_command(label = 'No_More_Cats_For_Me', command = out_pro)
+
+
+
+#_load_btn = Button(window, text='GetCat_by_Click', command=get_new_img)
+#_load_btn.pack()
+#_7 вместо кнопки делаем меню
 
 window.mainloop()
