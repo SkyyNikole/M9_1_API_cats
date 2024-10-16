@@ -35,4 +35,7 @@ label = Label(window, image = img)
 #1_закинем сюда image c сайта
 label.pack()
 
+load_btn = Button(window, text='GetCat_by_Click')
+load_btn.pack()
+
 window.mainloop()
