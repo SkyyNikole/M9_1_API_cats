@@ -35,7 +35,7 @@ def get_new_img():
 
 window = Tk()
 window.title('Cats and Kittens')
-window.geometry(f'500x400+{window.winfo_screenwidth()//2-250}+{window.winfo_screenheight()//2-200}')
+window.geometry(f'500x440+{window.winfo_screenwidth()//2-250}+{window.winfo_screenheight()//2-220}')
 window.iconbitmap('black_cat.ico')
 
 url = 'https://cataas.com/cat'
