@@ -31,7 +31,7 @@ img = get_cat(url)
 #3_в переменную img помещаяем функцию с параметром url,
 # на который она получит картинку с сайта
 
-label = Label(window, image = img)
+label = Label(window, image=img)
 #1_закинем сюда image c сайта
 label.pack()
 
