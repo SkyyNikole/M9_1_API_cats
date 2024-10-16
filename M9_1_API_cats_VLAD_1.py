@@ -31,9 +31,14 @@ def get_new_img():
 #_нажим кнопку и вызываем get_new_img(), внутри которой
 # вызывается get_cat(url) и в img запоминается картинка по url
     if img:
-        label.config(image=img)
+        new_window = Toplevel()
+        label = Label(new_window, image=img)
+        #_label.config(image=img) - убрали, тк теперь картинка сразу открывается в нов окне
         label.image = img
+        label.pack()
 #_6.1_изменяем и сохраняем
+#_8.1_при вызове get_new_img(), где мы должны создать Toplevel окно,
+#_и в него поместить label
 
 window = Tk()
 window.title('Cats and Kittens')
@@ -43,11 +48,11 @@ window.iconbitmap('black_cat.ico')
 url = 'https://cataas.com/cat'
 #2_переменная со ссылкой на image с сайта
 
-label = Label(window)
+#_8 label = Label(window) переносим в Toplevel окно
 #_6 изменяем - теперь в нем изначально нет изображения - см. 6.1
 #_1 label = Label(window, image=img)
 #1_закинем сюда image c сайта
-label.pack()
+#_label.pack() - тоже перенесли в 8.1
 
 main_menu = Menu(window)
 window.config(menu=main_menu)
