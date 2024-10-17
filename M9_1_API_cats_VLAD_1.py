@@ -1,10 +1,14 @@
 from tkinter import *
+from tkinter import ttk
 import requests
 from PIL import Image, ImageTk
 from io import BytesIO
 
 def out_pro():
     window.destroy()
+
+list_of_tags_for_cats = ['black', 'Maine coon', 'programmer', 'cat_winston', 'spy']
+
 
 #_4 функция получаем картинку, вернули через return и запомнилась она в img (#_3)
 def get_cat(url):
@@ -24,8 +28,9 @@ def get_cat(url):
 
 #_5_функц для кнопки - будем получать новую картику с котом
 def get_new_img():
-    tag = entry.get()
-#_9.1 _ получаем tag из entry
+    tag = tags_combobox.get()
+#_9.1 _ получаем tag из entry из .get() и привязываем объект tag_combobox
+#_10.2_убираем и добавляем
     url_with_tag = f'https://cataas.com/cat/{tag}' if tag else f'https://cataas.com/cat'
 #_9.2_новые url с tag, если есть tag, a иначе - без /tag
     #_img = get_cat(url) - после 9.2 изменяем на 9.3 c новым параметром для url с tag
@@ -60,9 +65,18 @@ window.iconbitmap('black_cat.ico')
 #1_закинем сюда image c сайта
 #_label.pack() - тоже перенесли в 8.1
 
-entry = Entry(window)
-entry.pack()
+#_entry = Entry(window)
+#_entry.pack()
 #_9 создаем entry и получаем из entry инфу в 9.1
+#10_после выбора по тегам убрали entry
+
+tag_label = ttk.Label(window, text='Choose_your_Cat_by_Tag:')
+tag_label.pack()
+
+tags_combobox = ttk.Combobox(window, values=list_of_tags_for_cats)
+tags_combobox.pack()
+#_10.1_combobox и список тэгов
+
 
 main_menu = Menu(window)
 window.config(menu=main_menu)
