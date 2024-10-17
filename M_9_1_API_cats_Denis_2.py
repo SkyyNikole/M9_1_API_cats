@@ -5,7 +5,7 @@ import requests
 from io import BytesIO
 
 
-Allowed_tags = ['psychedelic', 'sleep', 'black', 'fight', 'jump', 'lazy', 'newyear', 'poptart', 'relax', 'programmer']
+Allowed_tags = ['psychedelic', 'play', 'black', 'fight', 'jump', 'lazy', 'newyear', 'poptart', 'relax', 'programmer']
 #_создаем список для Combobox
 
 def load_image(url):
