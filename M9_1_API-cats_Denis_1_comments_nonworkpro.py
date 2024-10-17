@@ -37,6 +37,9 @@ def set_image():
     # _label.image = new_image - нужен, чтобы не ушла картинка в мусор
 
 
+def exit_pro():
+    window.destroy()
+
 window = Tk()
 window.title('Kitties_Tomcats_Kittens')
 window.geometry('600x520')
@@ -48,13 +51,16 @@ main_menu = Menu(window)
 window.config(menu = main_menu)
 
 file_menu = Menu(window, tearoff=0)
+main_menu.add_cascade(label='Файл', menu=main_menu)
+file_menu.add_command(label='Получить нового кота', command = set_image)
+file_menu.add_separator()
+file_menu.add_command(label='Покинуть котов', command = exit_pro)
 
 
 #_update_button = Button(window, text='Обновить', command = set_image)
 #_update_button.pack()
 
-url = 'https://cataas.com/cat'
-
+url = 'https://cataas.com/cat/cute'
 set_image()
 
 window.mainloop()
